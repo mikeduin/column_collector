@@ -9,7 +9,7 @@ require('dotenv').load();
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/columnCollector')
+mongoose.connect(process.env.MONGODB_URI);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
