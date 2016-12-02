@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/archive', archive);
+app.locals.moment = require('moment');
 
 app.post('/formCollector', function(req, res, next){
   var keywords = req.body.keywords;
@@ -60,7 +61,8 @@ app.post('/formCollector', function(req, res, next){
     headline: req.body.headline,
     keywords: filters,
     date: req.body.date,
-    body: req.body.body
+    body: req.body.body,
+    logged: new Date()
   });
 
   column.save(function(err, returned){
