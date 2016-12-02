@@ -10,7 +10,6 @@ router.get('/', function(req, res, next){
       columns: columns
     })
   })
-
 });
 
 module.exports = router;

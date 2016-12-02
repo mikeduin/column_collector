@@ -41,6 +41,15 @@ app.use('/users', users);
 app.use('/archive', archive);
 app.locals.moment = require('moment');
 
+app.get('/column/:datecode', function(req, res, next){
+  Column.find({datecode: req.params.datecode}, function(err, result){
+    console.log('result is ', result);
+    res.render('column', {
+      column: result
+    })
+  })
+})
+
 app.post('/formCollector', function(req, res, next){
   var keywords = req.body.keywords;
   var filters = [];
@@ -61,6 +70,7 @@ app.post('/formCollector', function(req, res, next){
     headline: req.body.headline,
     keywords: filters,
     date: req.body.date,
+    datecode: req.body.date,
     body: req.body.body,
     logged: new Date()
   });
@@ -69,7 +79,6 @@ app.post('/formCollector', function(req, res, next){
     console.log(returned.headline + ' saved to database');
     res.redirect('archive');
   })
-
 })
 
 // catch 404 and forward to error handler
