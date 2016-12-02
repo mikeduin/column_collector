@@ -19,6 +19,14 @@ block content
             for column in columns
               tr
                 td.col.s1= moment(column.date).format('YYYY.MM.DD')
-                td.col.s6= column.headline
-                td.col.s4= column.keywords 
+                td.col.s5= column.headline
+                td.col.s5 
+                  - var keys = column.keywords;
+                  - for (var i=0; i<keys.length; i++) {
+                  -   if (i<keys.length-1) {
+                        span= keys[i] + ', '
+                  -   } else {
+                        span= keys[i]
+                  -   }
+                  - }
                 td.col.s1= moment(column.logged).format('YYYY.MM.DD')
