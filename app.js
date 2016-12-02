@@ -20,6 +20,7 @@ require('./models/Column');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var archive = require('./routes/archive');
 
 var Column = mongoose.model('Column');
 
@@ -37,10 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
-app.get('/archive', function(req, res, next){
-  res.render('archive', {title: "Steve's Column Compiler"})
-});
+app.use('/archive', archive);
 
 app.post('/formCollector', function(req, res, next){
   var keywords = req.body.keywords;
