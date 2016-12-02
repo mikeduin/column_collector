@@ -7,19 +7,21 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('dotenv').load();
 
-mongoose.connect('mongodb://localhost/columnCollector')
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var app = express();
 
-var db = mongoose.connection;
+mongoose.connect('mongodb://localhost/columnCollector')
 
+var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log("we connected to Column Collector!")
 })
+require('./models/Column');
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
+
+var Column = mongoose.model('Column');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,20 +49,27 @@ app.post('/formCollector', function(req, res, next){
     var comma = string.indexOf(',');
     if (comma !== -1) {
       var word = string.substring(0, comma).trim();
-      console.log('word is ', word);
       filters.push(word);
       var newString = string.slice(comma+1, string.length);
-      console.log('newString is ', newString)
       filterFind(newString)
     } else {
       filters.push(string.trim());
     };
   };
   filterFind(keywords);
-  console.log('filters after function run is ', filters)
 
+  var column = Column({
+    headline: req.body.headline,
+    keywords: filters,
+    date: req.body.date,
+    body: req.body.body
+  });
 
-  res.redirect('archive');
+  column.save(function(err, returned){
+    console.log(returned.headline + ' saved to database');
+    res.redirect('archive');
+  })
+
 })
 
 // catch 404 and forward to error handler
