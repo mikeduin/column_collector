@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  
+  form#columnData(action="/formCollector" method="post")
+    div.row
+      div.input-field.col.s4
+        i.material-icons.prefix.large.
+          today
+        input(type="date" name="date")
+    div.row
+      div.input-field.col.s8
+        i.material-icons.prefix.large.
+          comment
+        input(type="text" placeholder='Headline' name="headline")
+    div.row
+      div.input-field.col.s8
+        i.material-icons.prefix.large.
+          vpn_key
+        input(type="text" placeholder='Keywords (separate with commas)' name="keywords")
+    div.row
+      div.input-field.col.s8
+        i.material-icons.prefix.large.
+          mode_edit
+        textarea.materialize-textarea(id="colBody" name="body" placeholder="Paste column here")
+    div.row
+      button.btn.waves-effect.waves-light(type="submit" id="submitBtn").
+        Submit 
+        
+      
+    
+      

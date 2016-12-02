@@ -1,0 +1,28 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input {
+  margin-left: 2%
+}
+
+.material-icons {
+  padding-top: 2%
+}
+
+.input-field {
+  margin-bottom: -40px
+}
+
+#submitBtn {
+  margin: 3% 0 0 2%
+}
+
+.nav {
+  margin-left: 3%
+}
