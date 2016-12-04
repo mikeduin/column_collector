@@ -36,3 +36,13 @@ input {
   font-weight: 600;
   margin-left: 5px;
 }
+
+.headline {
+  font-weight: 800;
+  font-size: 28px
+}
+
+.date {
+  text-transform: uppercase;
+  font-size: 16px;
+}

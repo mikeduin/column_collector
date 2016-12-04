@@ -6,22 +6,22 @@ block content
     div.col.s8  
       form#columnData(action="/formCollector" method="post")
         div.row
-          div.input-field
+          div.input-field.col.s6
             i.material-icons.prefix.large.
               today
             input(type="date" name="date")
         div.row
-          div.input-field
+          div.input-field.col.s12
             i.material-icons.prefix.large.
               comment
             input(type="text" placeholder='Headline' name="headline")
         div.row
-          div.input-field
+          div.input-field.col.s12
             i.material-icons.prefix.large.
               vpn_key
             input(type="text" placeholder='Keywords (separate with commas)' name="keywords")
         div.row
-          div.input-field
+          div.input-field.col.s12
             i.material-icons.prefix.large.
               mode_edit
             textarea.materialize-textarea(id="colBody" name="body" placeholder="Paste column here")
