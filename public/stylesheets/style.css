@@ -26,3 +26,13 @@ input {
 .nav {
   margin-left: 3%
 }
+
+.instructions {
+  border: solid 1px black;
+  margin-top: -10%
+}
+
+.instr {
+  font-weight: 600;
+  margin-left: 5px;
+}

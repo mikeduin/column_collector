@@ -2,30 +2,46 @@ extends layout
 
 block content
   
-  form#columnData(action="/formCollector" method="post")
-    div.row
-      div.input-field.col.s4
-        i.material-icons.prefix.large.
-          today
-        input(type="date" name="date")
-    div.row
-      div.input-field.col.s8
-        i.material-icons.prefix.large.
-          comment
-        input(type="text" placeholder='Headline' name="headline")
-    div.row
-      div.input-field.col.s8
-        i.material-icons.prefix.large.
-          vpn_key
-        input(type="text" placeholder='Keywords (separate with commas)' name="keywords")
-    div.row
-      div.input-field.col.s8
-        i.material-icons.prefix.large.
-          mode_edit
-        textarea.materialize-textarea(id="colBody" name="body" placeholder="Paste column here")
-    div.row
-      button.btn.waves-effect.waves-light(type="submit" id="submitBtn").
-        Submit 
+  div.row
+    div.col.s8  
+      form#columnData(action="/formCollector" method="post")
+        div.row
+          div.input-field
+            i.material-icons.prefix.large.
+              today
+            input(type="date" name="date")
+        div.row
+          div.input-field
+            i.material-icons.prefix.large.
+              comment
+            input(type="text" placeholder='Headline' name="headline")
+        div.row
+          div.input-field
+            i.material-icons.prefix.large.
+              vpn_key
+            input(type="text" placeholder='Keywords (separate with commas)' name="keywords")
+        div.row
+          div.input-field
+            i.material-icons.prefix.large.
+              mode_edit
+            textarea.materialize-textarea(id="colBody" name="body" placeholder="Paste column here")
+        div.row
+          button.btn.waves-effect.waves-light(type="submit" id="submitBtn").
+            Submit 
+    div.col.s4
+      div.instructions
+        p.instr.
+          INSTRUCTIONS
+        ol
+          li.
+            Open your column from Merlin in one window and #[a(href="https://html-cleaner.com/", target="_blank") this HTML generator] 
+            in another window
+          li.
+            Paste your column into the lefthand side of the HTML generator
+          li.
+            Take the HTML spit out by the generator and paste that into the 'Paste column here' section of this page along with the other column info
+          li.
+            Click submit and column will be added to archive page
         
       
     

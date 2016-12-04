@@ -43,7 +43,6 @@ app.locals.moment = require('moment');
 
 app.get('/column/:datecode', function(req, res, next){
   Column.find({datecode: req.params.datecode}, function(err, result){
-    console.log('result is ', result);
     res.render('column', {
       column: result
     })
