@@ -6,5 +6,5 @@ block content
       for c in column
         div.headline= c.headline
         div.date= moment(column.date).format('dddd, LL')
-        p= c.body
+        p!= c.body
   
